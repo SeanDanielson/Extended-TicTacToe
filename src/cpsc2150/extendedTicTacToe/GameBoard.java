@@ -1,146 +1,65 @@
 package cpsc2150.extendedTicTacToe;
 
-public class GameBoard {
-    /**
-     * @Invariant
-     * board.length = MAX_COLUMNS and
-     * board[].length = MAX_ROWS and
-     * [All values in board are either PLAYER_X,
-     *  PLAYER_O, or an empty space]
-     */
+/**
+ * Correspondence row_size = rows
+ * Correspondence column_size = columns
+ * Correspondence winning_num = winningNumber
+ * @Invariant
+ * board.length = rows and
+ * board[].length = columns and
+ * MIN_ROWS_AND_COLUMNS <= rows <= MAX_ROWS_AND_COLUMNS and
+ * MIN_ROWS_AND_COLUMNS <= colums <= MAX_ROWS_AND_COLUMNS and
+ * MIN_TO_WIN <= winningNumber <= MAX_TO_WIN
+ */
+public class GameBoard extends AbsGameBoard{
 
+    private int rows, columns;
+    private int winningNumber;
     private char board[][];
-    public static final char PLAYER_X = 'X';
-    public static final char PLAYER_O = 'O';
-    private static final int MAX_ROWS = 8;
-    private static final int MAX_COLUMNS = 8;
 
     /**
-     * @post
-     * [The board will be initialized with it's size and every
-     * index will hold an empty space]
-     */
-    GameBoard(){
-    }
-
-    /**
-     * @param pos object with row and column location on the board
-     * @return true if the space on the board is taken
-     */
-    public boolean checkSpace(BoardPosition pos){
-        return true;
-    }
-
-    /**
-     * @param marker object with row and column location on the board to be occupied
-     * @param player character to occupy the space at marker
+     * @param rowSize Number of rows for the game board
+     * @param columnSize Number of columns for the game board
+     * @param winningNumber Number of characters in a row to win
      * @pre
-     * [The position pos on the board is available] and
-     * player = PLAYER_X or player = PLAYER_O
+     * MIN_ROWS_AND_COLUMNS <= rowSize <= MAX_ROWS_AND_COLUMNS and
+     * MIN_ROWS_AND_COLUMNS <= columnSize <= MAX_ROWS_AND_COLUMNS and
+     * MIN_TO_WIN <= winningNumber <= MAX_TO_WIN
      * @post
-     * [location on the board at marker will contain the character
-     * player]
+     * rows = rowSize and columns = columnSize and winningNumber = winningNumber and
+     * [board is initialized with a row size of row and a column size of column] and
+     * [all values in board are set to a space character]
      */
+    GameBoard(int rowSize, int columnSize, int winningNumber){
+        this.rows = rowSize;
+        this.columns = columnSize;
+        this.winningNumber = winningNumber;
+
+        board = new char[rows][columns];
+        for (int rows = 0; rows < this.rows; rows++){
+            for(int cols = 0; cols < this.columns; cols++){
+                board[rows][cols] = ' ';
+            }
+        }
+    }
+
     public void placeMarker(BoardPosition marker, char player){
-
+        board[marker.getRow()][marker.getColumn()] = player;
     }
 
-    /**
-     * @param lastpos location on the board that was last placed
-     * @return whether or not a player won with 5 in a row
-     */
-    public boolean checkForWinner(BoardPosition lastpos){
-        return true;
-    }
-
-    /**
-     * @return true if all spaces on the board are filled
-     * @pre
-     * checkForWinner = false
-     */
-    public boolean checkForDraw(){
-        return true;
-    }
-
-    /**
-     * @param lastpos location on the board that was last placed
-     * @param player character to check if there is 5 in a row
-     * @return whether or not a player won with 5 in a row horizontally
-     * @pre
-     * player = PLAYER_X or player = PLAYER_O
-     */
-    public boolean checkHorizontalWin(BoardPosition lastpos, char player){
-        return true;
-    }
-
-    /**
-     * @param lastpos location on the board that was last placed
-     * @param player character to check if there is 5 in a row
-     * @return whether or not a player won with 5 in a row vertically
-     * @pre
-     * player = PLAYER_X or player = PLAYER_O
-     */
-    public boolean checkVerticalWin(BoardPosition lastpos, char player){
-        return true;
-    }
-
-    /**
-     * @param lastpos location on the board that was last placed
-     * @param player character to check if there is 5 in a row
-     * @return whether or not a player won with 5 in a row diagonally
-     * @pre
-     * player = PLAYER_X or player = PLAYER_O
-     */
-    public boolean checkDiagonalWin(BoardPosition lastpos, char player){
-        return true;
-    }
-
-    /**
-     * @param lastpos location on the board that was last placed
-     * @param player character to check if there is 5 in a row
-     * @return whether or not a player won with 5 in a row diagonally to the left
-     * @pre
-     * player = PLAYER_X or player = PLAYER_O
-     */
-    private boolean checkLeftDiagonalWin(BoardPosition lastpos, char player){
-        return true;
-    }
-
-    /**
-     * @param lastpos location on the board that was last placed
-     * @param player character to check if there is 5 in a row
-     * @return whether or not a player won with 5 in a row diagonally to the right
-     * @pre
-     * player = PLAYER_X or player = PLAYER_O
-     */
-    private boolean checkRightDiagonalWin(BoardPosition lastpos, char player){
-        return true;
-    }
-
-    /**
-     * @param pos row and column location on the board
-     * @return the player/character that occupies the space at pos
-     * @post
-     * whatsAtPos = PLAYER_O or whatsAtPos = PLAYER_X or
-     * [whatsAtPos returns a space character]
-     */
     public char whatsAtPos(BoardPosition pos){
-        return ' ';
+        return board[pos.getRow()][pos.getColumn()];
     }
 
-    /**
-     * @param pos row and column location on the board
-     * @param player character to check at location pos
-     * @return true if the player is at the location pos, false otherwise
-     */
-    public boolean isPlayerAtPos(BoardPosition pos, char player){
-        return true;
+    public int getNumRows(){
+        return rows;
     }
 
-    /**
-     * @return a string representation of the game board
-     */
-    public String toString() {
-        return "";
+    public int getNumColumns(){
+        return columns;
+    }
+
+    public int getNumToWin(){
+        return winningNumber;
     }
 }
