@@ -2,8 +2,8 @@ package cpsc2150.extendedTicTacToe;
 
 /**
  * This is a game board for a tic-tac-toe game that has a
- * user defined size. This is used for the game tic tac toe and
- * will contain only a space of two different types of players.
+ * user defined size. This is used for the game tic tac toe which
+ * will contain characters to represent multiple players.
  * @Define:
  * row_size: z+
  * column_size: z+
