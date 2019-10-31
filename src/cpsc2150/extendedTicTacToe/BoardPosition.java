@@ -1,8 +1,7 @@
 package cpsc2150.extendedTicTacToe;
 
 /**
- * @invariant
- * 0 <= row <= GameBoard.MAX_ROWS_AND_COLUMNS
+ * @invariant 0 <= row <= GameBoard.MAX_ROWS_AND_COLUMNS
  * 0 <= column <= GameBoard.MIN_ROWS_AND_COLUMNS
  */
 public class BoardPosition {
@@ -11,32 +10,29 @@ public class BoardPosition {
     private int column;
 
     /**
-     * @param row row location on Gameboard
+     * @param row    row location on Gameboard
      * @param column column location on Gameboard
      * @pre
-     * @post
-     * self.row = row and self.column = column
+     * @post self.row = row and self.column = column
      */
-    BoardPosition(int row, int column){
+    BoardPosition(int row, int column) {
         this.row = row;
         this.column = column;
     }
 
     /**
      * @return row location
-     * @post
-     * getRow = row
+     * @post getRow = row
      */
-    public int getRow(){
+    public int getRow() {
         return row;
     }
 
     /**
      * @return column location
-     * @post
-     * getColumn = column
+     * @post getColumn = column
      */
-    public int getColumn(){
+    public int getColumn() {
         return column;
     }
 
@@ -44,20 +40,18 @@ public class BoardPosition {
      * @param pos BoardPosition being compared
      * @return true if the row and column of compared BoardPositions
      * are the same
-     * @post
-     * row = #row and col = #col
+     * @post row = #row and col = #col
      */
-    public boolean equals(BoardPosition pos){
+    public boolean equals(BoardPosition pos) {
         return this.row == pos.row && this.column == pos.column;
     }
 
     /**
      * @return row and column in the format "<row>,<column>"
-     * @post
-     * row = #row and col = #col
+     * @post row = #row and col = #col
      */
     @Override
-    public String toString(){
+    public String toString() {
         return this.row + "," + this.column;
     }
 }
