@@ -9,7 +9,9 @@ import java.util.*;
  *
  * @Invariant MIN_ROWS_AND_COLUMNS <= rows <= MAX_ROWS_AND_COLUMNS and
  * MIN_ROWS_AND_COLUMNS <= colums <= MAX_ROWS_AND_COLUMNS and
- * MIN_TO_WIN <= winningNumber <= MAX_TO_WIN
+ * MIN_TO_WIN <= winningNumber <= MAX_TO_WIN and
+ * [All BoardPositions in the Linked List in board will be within the
+ * bounds of row and column]
  */
 public class GameBoardMem extends AbsGameBoard {
     private int rows, columns;
