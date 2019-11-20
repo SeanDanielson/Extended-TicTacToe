@@ -45,7 +45,7 @@ public interface IGameBoard {
 
     /**
      * @param lastpos location on the board that was last placed
-     * @return whether or not a player won with 5 in a row
+     * @return whether or not a player won with winning_num in a row
      * @pre 0 <= lastpos.getRow < row_size and 0 <= lastpos.getColumn < column_size and
      * lastpos != null
      * @post checkForWinner iff [There are winning_num characters in a row vertically,
@@ -81,8 +81,8 @@ public interface IGameBoard {
 
     /**
      * @param lastpos location on the board that was last placed
-     * @param player  character to check if there is 5 in a row
-     * @return whether or not a player won with 5 in a row horizontally
+     * @param player  character to check if there is winning_num in a row
+     * @return whether or not a player won with winning_num in a row horizontally
      * @pre lastpos != null and MIN_ROWS_AND_COLUMNS <= lastpos.getRow() <= MAX_ROWS_AND_COLUMNS and
      * MIN_ROWS_AND_COLUMNS <= lastpos.getColumns <= lastpos.getColumns
      * @post checkHorizontalWin iff [there are winning_num characters of player in a row
@@ -121,8 +121,8 @@ public interface IGameBoard {
 
     /**
      * @param lastpos location on the board that was last placed
-     * @param player  character to check if there is 5 in a row
-     * @return whether or not a player won with 5 in a row vertically
+     * @param player  character to check if there is winning_num in a row
+     * @return whether or not a player won with winning_num in a row vertically
      * @pre lastpos != null and MIN_ROWS_AND_COLUMNS <= lastpos.getRow() <= MAX_ROWS_AND_COLUMNS and
      * MIN_ROWS_AND_COLUMNS <= lastpos.getColumns <= lastpos.getColumns
      * @post checkVerticalWin iff [there are winning_num characters of player in a row
@@ -161,8 +161,8 @@ public interface IGameBoard {
 
     /**
      * @param lastpos location on the board that was last placed
-     * @param player  character to check if there is 5 in a row
-     * @return whether or not a player won with 5 in a row diagonally
+     * @param player  character to check if there is winning_num in a row
+     * @return whether or not a player won with winning_num in a row diagonally
      * @pre lastpos != null and MIN_ROWS_AND_COLUMNS <= lastpos.getRow() <= MAX_ROWS_AND_COLUMNS and
      * MIN_ROWS_AND_COLUMNS <= lastpos.getColumns <= lastpos.getColumns
      * @post checkDiagonalWin iff [there are winning_num characters of player in a row
@@ -227,6 +227,7 @@ public interface IGameBoard {
             row_iterator++;
             col_iterator--;
             chars_in_a_row++;
+            pos = new BoardPosition(row_iterator, col_iterator);
         }
 
         return chars_in_a_row == getNumToWin();
