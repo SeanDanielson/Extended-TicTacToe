@@ -203,6 +203,10 @@ public interface IGameBoard {
         row_iterator = lastpos.getRow() - 1;
         col_iterator = lastpos.getColumn() + 1;
         pos = new BoardPosition(row_iterator, col_iterator);
+        if(chars_in_a_row == getNumToWin()){
+            return true;
+        }
+        chars_in_a_row = 1;
 
         // Counts all the characters in a row up and to the right of
         // the current position
