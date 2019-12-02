@@ -2,11 +2,11 @@
 Extended TicTacToe game for CPSC 2150 at Clemson University. Created to demonstrate knowledge of object-oriented programming, separation of concerns, inheritance, and testing.
 
 ## Functional Requirements
-o	As a player, I can easily tell what player’s turn it is so I can play on my turn.
-o	As a player, I can see the game board, so I know what is available and what is not.
-o	As a player, I can specify whether or not I want to play again so that I can play multiple games.
-o	As a player, I understand how the coordinate system works so I can input my moves correctly.
-o	As a player, I can pick again if I pick an unavailable space, so I don’t lose my turn
+- As a player, I can easily tell what player’s turn it is so I can play on my turn
+- As a player, I can see the game board, so I know what is available and what is not
+- As a player, I can specify whether or not I want to play again so that I can play multiple games
+- As a player, I understand how the coordinate system works so I can input my moves correctly
+- As a player, I can pick again if I pick an unavailable space, so I don’t lose my turn
 o	As a player, if I get the defined winning number in a row horizontally, I will win the game, so I can win the game
 o	As a player, if I get the defined winning number in a row vertically, I will win the game, so I can win the game
 o	As a player, if I get the defined winning number in a row diagonally, I will win the game, so I can win the game
